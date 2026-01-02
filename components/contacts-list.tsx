@@ -140,15 +140,19 @@ export function ContactsList({ refreshTrigger }) {
                     <td className="px-6 py-4 font-medium text-foreground">
                       {contact.name}
                     </td>
-                    <td className="px-6 py-4 text-foreground break-all">
-                      {contact.email}
+                    <td className="px-6 py-4 text-foreground max-w-[220px] truncate">
+                      <span title={contact.email}>{contact.email}</span>
                     </td>
+
                     <td className="px-6 py-4 text-foreground">
                       {contact.phone}
                     </td>
-                    <td className="px-6 py-4 text-muted-foreground max-w-xs truncate">
-                      {contact.message || "—"}
+                    <td className="px-6 py-4 text-muted-foreground max-w-[300px]">
+                      <div className="line-clamp-2 break-words">
+                        {contact.message || "—"}
+                      </div>
                     </td>
+
                     <td className="px-6 py-4 text-muted-foreground whitespace-nowrap">
                       {formatDate(contact.createdAt)}
                     </td>
